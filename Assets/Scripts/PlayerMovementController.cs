@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovementController : MonoBehaviour
 {
-    [Header("Movement Speeds")]
+    [Header("Movement Settings")]
     public float walkSpeed = 10f;
     public float runSpeed = 15f;
     public float initialSprintSpeed = 20f;
@@ -41,15 +41,16 @@ public class PlayerMovementController : MonoBehaviour
 
     private bool isWallTouching;
     private bool isWallSliding;
+    public Vector2 wallJumpForce = new Vector2(15f, 18f); 
+    public float wallJumpDuration = 0.2f; 
 
-    [Header("Snappiness Settings")]
+    [Header("Fall Settings")]
     public float fallMultiplier = 4f;
     public float lowJumpMultiplier = 3f;
 
     public Transform groundCheck;
     public float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
-
 
     [Header("General Settings")]
     public float doubleTapTime = 0.3f;
@@ -91,6 +92,9 @@ public class PlayerMovementController : MonoBehaviour
         ReadInput();
         CheckDoubleTap();
         WallSlide();
+        HandleJumpInput();
+        HandleDashInput();
+        HandleMovementLogic();
 
         if (isRecovering)
         {
@@ -102,10 +106,6 @@ public class PlayerMovementController : MonoBehaviour
             }
             return;
         }
-
-        HandleJumpInput();
-        HandleDashInput();
-        HandleMovementLogic();
 
         if (isGrounded)
         {
@@ -135,9 +135,10 @@ public class PlayerMovementController : MonoBehaviour
         if (isSkidding && isGrounded) Skid();
     }
 
+    #region MOVEMENT
     void HandleMovementLogic()
     {
-        if (isDashing || isDownDashing || isRecovering) return;
+        if (isDashing || isDownDashing || isRecovering || isWallSliding) return;
 
         float currentTargetSpeed = walkSpeed;
         bool isMoving = moveDirection != 0;
@@ -147,20 +148,14 @@ public class PlayerMovementController : MonoBehaviour
         if (isRunning && sprintKeyHeld && isMoving)
         {
             currentSprintTimer += Time.deltaTime;
-
-            // Maintain initial sprint speed for the first 2 seconds, then increase
             if (currentSprintTimer > delayBeforeSpeedIncrease)
             {
                 float timeIncreasing = currentSprintTimer - delayBeforeSpeedIncrease;
                 dynamicSprintSpeed = initialSprintSpeed + (timeIncreasing * speedIncreasePerSecond);
             }
-            else
-            {
-                dynamicSprintSpeed = initialSprintSpeed;
-            }
+            else dynamicSprintSpeed = initialSprintSpeed;
 
             currentTargetSpeed = dynamicSprintSpeed;
-            Debug.Log("Sprinting at speed: " + currentTargetSpeed);
         }
         else
         {
@@ -169,45 +164,118 @@ public class PlayerMovementController : MonoBehaviour
 
             if (isGrounded && isRunning && (sprintKeyReleased || !isMoving) && highSpeed && sprintedLongEnough && !isSkidding)
             {
-                Debug.Log("Sprint Stop: Skidding started");
                 isSkidding = true;
                 skidVelocity = rb.linearVelocity.x;
                 skidDirection = Mathf.Sign(skidVelocity);
             }
-
             currentSprintTimer = 0f;
             dynamicSprintSpeed = initialSprintSpeed;
         }
 
         if (isSkidding) return;
 
-        if (isRunning && !sprintKeyHeld)
-        {
-            currentTargetSpeed = runSpeed;
-            if (isMoving) Debug.Log("Player is Running");
-        }
-        else if (!isRunning && isMoving)
-        {
-            Debug.Log("Player is Walking");
-        }
-
-        if (isGrounded && moveDirection == 0 && Mathf.Abs(rb.linearVelocity.x) < 0.1f)
-        {
-            isRunning = false;
-        }
+        if (isRunning && !sprintKeyHeld) currentTargetSpeed = runSpeed;
+        if (isGrounded && moveDirection == 0 && Mathf.Abs(rb.linearVelocity.x) < 0.1f) isRunning = false;
 
         if (isGrounded)
         {
-            speedAtJumpStart = currentTargetSpeed;
-            lockedDirection = moveDirection;
+            speedAtJumpStart = currentTargetSpeed; 
+            rb.linearVelocity = new Vector2(moveDirection * currentTargetSpeed, rb.linearVelocity.y);
         }
-
-        ApplyMovement(speedAtJumpStart, lockedDirection);
+        else
+        {
+            if (isMoving)
+            {
+                float airSpeed = Mathf.Max(walkSpeed, speedAtJumpStart);
+                rb.linearVelocity = new Vector2(moveDirection * airSpeed, rb.linearVelocity.y);
+            }
+            else
+            {
+                rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            }
+        }
     }
 
     void ApplyMovement(float speed, float direction)
     {
         rb.linearVelocity = new Vector2(direction * speed, rb.linearVelocity.y);
+    }
+    #endregion
+
+    #region JUMP & SLIDE
+    void HandleJumpInput()
+    {
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            if (isWallSliding)
+            {
+                WallJump();
+            }
+            else if (isGrounded || coyoteTimeCounter > 0)
+            {
+                StartJump();
+            }
+            else if (canDoubleJump)
+            {
+                PerformDoubleJump();
+            }
+        }
+
+
+        if (Keyboard.current.spaceKey.isPressed && isJumping)
+        {
+            if (jumpTimeCounter > 0)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                jumpTimeCounter -= Time.deltaTime;
+            }
+            else isJumping = false;
+        }
+        if (Keyboard.current.spaceKey.wasReleasedThisFrame) isJumping = false;
+    }
+
+    void WallJump()
+    {
+        Debug.Log("Player Wall Jumped");
+
+        float jumpDir = wallCheck.localPosition.x > 0 ? -1f : 1f;
+
+        isWallSliding = false;
+        isJumping = false;
+
+
+        rb.linearVelocity = new Vector2(jumpDir * wallJumpForce.x, wallJumpForce.y);
+
+
+        StartCoroutine(WallJumpControlLock());
+    }
+
+    void WallSlide()
+    {
+        isWallTouching = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, wallLayer);
+
+        bool isPushingWall = (moveDirection > 0 && wallCheck.localPosition.x > 0) || (moveDirection < 0 && wallCheck.localPosition.x < 0);
+
+        if (isWallTouching && !isGrounded && rb.linearVelocity.y < 0 && isPushingWall)
+        {
+            isWallSliding = true;
+            float vVel = Mathf.Max(rb.linearVelocity.y, -wallSlideSpeed);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, vVel);
+
+            canDoubleJump = true;
+            canDash = true;
+        }
+        else
+        {
+            isWallSliding = false;
+        }
+    }
+
+    private System.Collections.IEnumerator WallJumpControlLock()
+    {
+        isRecovering = true;
+        recoveryTimer = wallJumpDuration;
+        yield return new WaitForSeconds(wallJumpDuration);
     }
 
     void StartJump()
@@ -228,8 +296,19 @@ public class PlayerMovementController : MonoBehaviour
         lockedDirection = moveDirection;
         rb.linearVelocity = new Vector2(lockedDirection * speedAtJumpStart, doubleJumpForce);
     }
+    #endregion
 
+    #region DASH & SKID
     void Dash() { StartCoroutine(PerformDashRoutine()); }
+
+    void HandleDashInput()
+    {
+        if (Keyboard.current.enterKey.wasPressedThisFrame && canDash)
+        {
+            if (isGrounded) { if (!isRunning) Dash(); }
+            else { if (Keyboard.current.sKey.isPressed) DownDash(); else Dash(); }
+        }
+    }
 
     private System.Collections.IEnumerator PerformDashRoutine()
     {
@@ -250,7 +329,7 @@ public class PlayerMovementController : MonoBehaviour
         isDownDashing = true; isJumping = false; canDash = false;
         rb.linearVelocity = new Vector2(moveDirection * downDashHorizontalSpeed, -downDashVerticalForce);
     }
-
+ 
     void Skid()
     {
         float deceleration = skidDeceleration;
@@ -263,7 +342,9 @@ public class PlayerMovementController : MonoBehaviour
         if (Mathf.Abs(skidVelocity) < 0.1f) TriggerRecovery();
         else if (moveDirection == skidDirection) isSkidding = false;
     }
+    #endregion
 
+    #region FUNCTION
     void TriggerRecovery()
     {
         Debug.Log("Player is Stunned/Recovering");
@@ -297,49 +378,7 @@ public class PlayerMovementController : MonoBehaviour
             lastTapTimeD = Time.time;
         }
     }
-
-    void HandleJumpInput()
-    {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            if (isGrounded || coyoteTimeCounter > 0) StartJump();
-            else if (canDoubleJump) PerformDoubleJump();
-        }
-        if (Keyboard.current.spaceKey.isPressed && isJumping)
-        {
-            if (jumpTimeCounter > 0) { rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); jumpTimeCounter -= Time.deltaTime; }
-            else isJumping = false;
-        }
-        if (Keyboard.current.spaceKey.wasReleasedThisFrame) isJumping = false;
-    }
-
-    void HandleDashInput()
-    {
-        if (Keyboard.current.enterKey.wasPressedThisFrame && canDash)
-        {
-            if (isGrounded) { if (!isRunning) Dash(); }
-            else { if (Keyboard.current.sKey.isPressed) DownDash(); else Dash(); }
-        }
-    }
-
-    void WallSlide()
-    {
-        // Check if we are touching a wall
-        isWallTouching = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, wallLayer);
-
-        // Wall slide if: touching wall, NOT on ground, and moving downward
-        if (isWallTouching && !isGrounded && rb.linearVelocity.y < 0)
-        {
-            isWallSliding = true;
-            Debug.Log("Player is Wall Sliding");
-
-            // Clamp the downward velocity to the slide speed
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, Mathf.Clamp(rb.linearVelocity.y, -wallSlideSpeed, float.MaxValue));
-        }
-        else
-        {
-            isWallSliding = false;
-        }
-    }
-
+    #endregion
 }
+
+

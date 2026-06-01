@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: faab7b86d15703f4b98a53e9ba9bb0f3
+guid: 4e34dc6bcc5496a4e928fa42bb63137f
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -29,75 +29,6 @@ TextureImporter:
   - first:
       213: 7571067686832567942
     second: Movementcombat_Game_Assets_8
-  - first:
-      213: -5933605857438645237
-    second: Movementcombat_Game_Assets_9
-  - first:
-      213: 4013293985813020651
-    second: Movementcombat_Game_Assets_10
-  - first:
-      213: 1327849225726217201
-    second: Movementcombat_Game_Assets_11
-  - first:
-      213: 6979670353158158746
-    second: Movementcombat_Game_Assets_12
-  - first:
-      213: 7886418509154615316
-    second: Movementcombat_Game_Assets_13
-  - first:
-      213: 89695437688034873
-    second: Movementcombat_Game_Assets_14
-  - first:
-      213: -8502832490288101955
-    second: Movementcombat_Game_Assets_15
-  - first:
-      213: -1809205250176429725
-    second: Movementcombat_Game_Assets_16
-  - first:
-      213: 223670385025946160
-    second: Movementcombat_Game_Assets_17
-  - first:
-      213: -1996087912143792043
-    second: Movementcombat_Game_Assets_18
-  - first:
-      213: -3228967940888374609
-    second: Movementcombat_Game_Assets_19
-  - first:
-      213: 8727105218850239352
-    second: Movementcombat_Game_Assets_20
-  - first:
-      213: 790639344218783298
-    second: Movementcombat_Game_Assets_21
-  - first:
-      213: 8932746755213939764
-    second: Movementcombat_Game_Assets_22
-  - first:
-      213: -169199116789839230
-    second: Movementcombat_Game_Assets_23
-  - first:
-      213: 4831121710166385289
-    second: Movementcombat_Game_Assets_24
-  - first:
-      213: 276779610753500917
-    second: Movementcombat_Game_Assets_25
-  - first:
-      213: -8981471524467223300
-    second: Movementcombat_Game_Assets_26
-  - first:
-      213: -5163751797817330601
-    second: Movementcombat_Game_Assets_27
-  - first:
-      213: 1945658859496030245
-    second: Movementcombat_Game_Assets_28
-  - first:
-      213: -6422011275576000417
-    second: Movementcombat_Game_Assets_29
-  - first:
-      213: -8180731793427535767
-    second: Movementcombat_Game_Assets_30
-  - first:
-      213: -2481217538952711955
-    second: Movementcombat_Game_Assets_31
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -165,8 +96,8 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
-    resizeAlgorithm: 1
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -196,12 +127,12 @@ TextureImporter:
       name: Movementcombat_Game_Assets_0
       rect:
         serializedVersion: 2
-        x: 208
-        y: 80
+        x: 16
+        y: 96
         width: 16
-        height: 16
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -218,12 +149,12 @@ TextureImporter:
       name: Movementcombat_Game_Assets_1
       rect:
         serializedVersion: 2
-        x: 208
-        y: 64
+        x: 96
+        y: 96
         width: 16
-        height: 16
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -240,12 +171,12 @@ TextureImporter:
       name: Movementcombat_Game_Assets_2
       rect:
         serializedVersion: 2
-        x: 224
-        y: 80
-        width: 16
-        height: 16
+        x: 176
+        y: 90
+        width: 32
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -262,10 +193,10 @@ TextureImporter:
       name: Movementcombat_Game_Assets_3
       rect:
         serializedVersion: 2
-        x: 151
-        y: 180
-        width: 48
-        height: 27
+        x: 222
+        y: 94
+        width: 19
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,8 +215,8 @@ TextureImporter:
       name: Movementcombat_Game_Assets_4
       rect:
         serializedVersion: 2
-        x: 192
-        y: 80
+        x: 176
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -306,12 +237,12 @@ TextureImporter:
       name: Movementcombat_Game_Assets_5
       rect:
         serializedVersion: 2
-        x: 240
-        y: 80
+        x: 112
+        y: 96
         width: 16
-        height: 16
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -328,12 +259,12 @@ TextureImporter:
       name: Movementcombat_Game_Assets_6
       rect:
         serializedVersion: 2
-        x: 224
-        y: 32
+        x: 128
+        y: 96
         width: 16
-        height: 16
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -350,12 +281,12 @@ TextureImporter:
       name: Movementcombat_Game_Assets_7
       rect:
         serializedVersion: 2
-        x: 224
-        y: 48
+        x: 96
+        y: 74
         width: 16
-        height: 16
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -372,10 +303,10 @@ TextureImporter:
       name: Movementcombat_Game_Assets_8
       rect:
         serializedVersion: 2
-        x: 176
-        y: 80
+        x: 112
+        y: 74
         width: 16
-        height: 16
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -394,20 +325,20 @@ TextureImporter:
       name: Movementcombat_Game_Assets_9
       rect:
         serializedVersion: 2
-        x: 208
-        y: 48
+        x: 32
+        y: 96
         width: 16
-        height: 16
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b04413609e897ada0800000000000000
-      internalID: -5933605857438645237
+      spriteID: fde804442e926254e8b55c2b743f7f2d
+      internalID: -174596336
       vertices: []
       indices: 
       edges: []
@@ -416,20 +347,152 @@ TextureImporter:
       name: Movementcombat_Game_Assets_10
       rect:
         serializedVersion: 2
-        x: 176
-        y: 16
+        x: 48
+        y: 96
         width: 16
-        height: 16
+        height: 22
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: befb893ed9512b730800000000000000
-      internalID: 4013293985813020651
+      spriteID: 14f47715f672850409e5a4e568d55d54
+      internalID: -1205045980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Movementcombat_Game_Assets_11
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 74
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1ab46c7059e8aa4ab7f9dc39b8671c2
+      internalID: -1124313638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Movementcombat_Game_Assets_12
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 74
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4791c84155e8f6b408368b1fdae6d096
+      internalID: -2020003340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Movementcombat_Game_Assets_13
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 74
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 560e7f33fe3fa2b49aa3f97e12cd32b8
+      internalID: -1117291406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Movementcombat_Game_Assets_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 74
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60855175af0515b438c31454194796ab
+      internalID: 983572074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Movementcombat_Game_Assets_15
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 31
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da6ef81a457880945adbbfb600e6fb22
+      internalID: -1346058068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Movementcombat_Game_Assets_16
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 9
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c13af67abd8db334bb7f213b1bf52b52
+      internalID: 786411521
       vertices: []
       indices: 
       edges: []
@@ -438,9 +501,9 @@ TextureImporter:
       name: Movementcombat_Game_Assets_17
       rect:
         serializedVersion: 2
-        x: 176
-        y: 48
-        width: 16
+        x: 58
+        y: 32
+        width: 22
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -448,10 +511,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0321f36b703aa1300800000000000000
-      internalID: 223670385025946160
+      spriteID: 29e5d5027b039ee4d9ded1e1bd75a67f
+      internalID: -1783076593
       vertices: []
       indices: 
       edges: []
@@ -460,9 +523,9 @@ TextureImporter:
       name: Movementcombat_Game_Assets_18
       rect:
         serializedVersion: 2
-        x: 192
-        y: 48
-        width: 16
+        x: 58
+        y: 16
+        width: 22
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -470,43 +533,65 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 558d730ae987c44e0800000000000000
-      internalID: -1996087912143792043
+      spriteID: c4cfe2c5d109f3f4788588b0eb039e85
+      internalID: 2123119100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Movementcombat_Game_Assets_27
+      name: Movementcombat_Game_Assets_19
       rect:
         serializedVersion: 2
-        x: 176
-        y: 32
-        width: 16
-        height: 16
+        x: 96
+        y: 31
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 75430de391ba658b0800000000000000
-      internalID: -5163751797817330601
+      spriteID: 07f495aba81869040b9a52c289908689
+      internalID: -801222462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Movementcombat_Game_Assets_28
+      name: Movementcombat_Game_Assets_20
       rect:
         serializedVersion: 2
-        x: 192
+        x: 96
+        y: 9
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2a7d61d4054d714e8895dc39aa505e4
+      internalID: -272420867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Movementcombat_Game_Assets_21
+      rect:
+        serializedVersion: 2
+        x: 138
         y: 32
-        width: 16
+        width: 22
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -514,10 +599,32 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5204a569c6e500b10800000000000000
-      internalID: 1945658859496030245
+      spriteID: 7b0e77eb90a497d4583a791151b5ed2f
+      internalID: 1410649670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Movementcombat_Game_Assets_22
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 16
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f6fae641359b864c94899b108316abb
+      internalID: -39147629
       vertices: []
       indices: 
       edges: []
@@ -526,7 +633,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8c3031ad0d5a89746808cb16746a3aae
+    spriteID: 5177f583f409741459df8d9799d8ecb2
     internalID: 0
     vertices: []
     indices: 
@@ -538,36 +645,27 @@ TextureImporter:
     nameFileIdTable:
       Movementcombat_Game_Assets_0: -2663798355720579183
       Movementcombat_Game_Assets_1: -6132689522265560786
-      Movementcombat_Game_Assets_10: 4013293985813020651
-      Movementcombat_Game_Assets_11: 1327849225726217201
-      Movementcombat_Game_Assets_12: 6979670353158158746
-      Movementcombat_Game_Assets_13: 7886418509154615316
-      Movementcombat_Game_Assets_14: 89695437688034873
-      Movementcombat_Game_Assets_15: -8502832490288101955
-      Movementcombat_Game_Assets_16: -1809205250176429725
-      Movementcombat_Game_Assets_17: 223670385025946160
-      Movementcombat_Game_Assets_18: -1996087912143792043
-      Movementcombat_Game_Assets_19: -3228967940888374609
+      Movementcombat_Game_Assets_10: -1205045980
+      Movementcombat_Game_Assets_11: -1124313638
+      Movementcombat_Game_Assets_12: -2020003340
+      Movementcombat_Game_Assets_13: -1117291406
+      Movementcombat_Game_Assets_14: 983572074
+      Movementcombat_Game_Assets_15: -1346058068
+      Movementcombat_Game_Assets_16: 786411521
+      Movementcombat_Game_Assets_17: -1783076593
+      Movementcombat_Game_Assets_18: 2123119100
+      Movementcombat_Game_Assets_19: -801222462
       Movementcombat_Game_Assets_2: 2762000078368501046
-      Movementcombat_Game_Assets_20: 8727105218850239352
-      Movementcombat_Game_Assets_21: 790639344218783298
-      Movementcombat_Game_Assets_22: 8932746755213939764
-      Movementcombat_Game_Assets_23: -169199116789839230
-      Movementcombat_Game_Assets_24: 4831121710166385289
-      Movementcombat_Game_Assets_25: 276779610753500917
-      Movementcombat_Game_Assets_26: -8981471524467223300
-      Movementcombat_Game_Assets_27: -5163751797817330601
-      Movementcombat_Game_Assets_28: 1945658859496030245
-      Movementcombat_Game_Assets_29: -6422011275576000417
+      Movementcombat_Game_Assets_20: -272420867
+      Movementcombat_Game_Assets_21: 1410649670
+      Movementcombat_Game_Assets_22: -39147629
       Movementcombat_Game_Assets_3: 277773875718378158
-      Movementcombat_Game_Assets_30: -8180731793427535767
-      Movementcombat_Game_Assets_31: -2481217538952711955
       Movementcombat_Game_Assets_4: 3135966885345603503
       Movementcombat_Game_Assets_5: 7603566172467657729
       Movementcombat_Game_Assets_6: -7754251439776238096
       Movementcombat_Game_Assets_7: 5197450256780776284
       Movementcombat_Game_Assets_8: 7571067686832567942
-      Movementcombat_Game_Assets_9: -5933605857438645237
+      Movementcombat_Game_Assets_9: -174596336
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

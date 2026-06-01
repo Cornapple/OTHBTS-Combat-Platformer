@@ -8340,6 +8340,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3777575205075056550, guid: 1db35127800ab4a4b95ef02f08f2e0af, type: 3}
   m_PrefabInstance: {fileID: 1798938037}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &346102220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 346102222}
+  - component: {fileID: 346102221}
+  m_Layer: 0
+  m_Name: Ground Fluid Assets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!210 &346102221
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346102220}
+  m_Enabled: 1
+  m_SortingLayerID: 479809145
+  m_SortingLayer: 1
+  m_SortingOrder: 2
+  m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
+--- !u!4 &346102222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346102220}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 55.723633, y: -3.7379954, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &348479477 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1862906734513997786, guid: caf8a1f4a9b6598409a559b0ddfa19dc, type: 3}
@@ -10497,6 +10542,7 @@ GameObject:
   - component: {fileID: 486009552}
   - component: {fileID: 486009551}
   - component: {fileID: 486009550}
+  - component: {fileID: 486009554}
   m_Layer: 0
   m_Name: Player Object
   m_TagString: Untagged
@@ -10701,6 +10747,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &486009554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486009548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07380e6dfc493c64e90f8baa61769909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  playerBaseHealth: 0
+  playerHealth: 0
+  playerMaxHealth: 0
+  playerBaseLevel: 0
+  playerLevel: 0
+  playerMaxLevel: 0
+  playerBaseDamage: 0
+  playerDamage: 0
+  playerMaxDamage: 0
 --- !u!1 &487536279 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2029900000708172245, guid: 7177cd2b06e68db4e84e55a097fab7b2, type: 3}
@@ -48817,3 +48884,4 @@ SceneRoots:
   - {fileID: 2064026134}
   - {fileID: 1656741323}
   - {fileID: 520347926}
+  - {fileID: 346102222}
